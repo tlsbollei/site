@@ -25,6 +25,7 @@ header {
     display: flex;
     justify-content: space-between; /* Distribute space between logo and menu */
     align-items: center; /* Center items vertically */
+	position : relative;
 }
 
 .logo {
@@ -47,16 +48,25 @@ header {
     position: relative;
 }
 
+.nmap-eye {
+    position: absolute; /* Position the image relative to the header */
+    top: 10px; /* Adjust to fit within the header */
+    left: 50px; /* Adjust to fit within the header */
+    width: 40px; /* Set a small size, adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0; /* Remove any default margin */
+}
+
 .logo__cursor {
     display: inline-block;
     width: 8px;
-    height: 24px;
+    height: 1em;
     background-color: #ffffff;
-    margin-left: 5px;
+    margin-left: 1px;
     animation: blink 1s step-start infinite;
-    position: absolute;
+    position: relative;
     right: -12px;
-    top: 0;
+    top: 0.1em;
 }
 
 @keyframes blink {
@@ -68,6 +78,8 @@ header {
 .menu {
     display: flex; /* Ensure the menu items are in a row */
     align-items: center; /* Center menu items vertically */
+	justify-content: flex-end;
+	margin-left : auto;
 }
 
 .menu ul {
