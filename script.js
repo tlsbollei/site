@@ -1,5 +1,5 @@
 // Set the target date (September 24, 2024, 1:52 PM)
-const targetDate = new Date('September 24, 2024 13:52:00').getTime();
+const targetDate = new Date('September 25, 2024 01:00:00').getTime();
 
 function updateElapsedTime() {
     // Get the current time
@@ -16,7 +16,7 @@ function updateElapsedTime() {
 
     // Update the #days element with the calculated time passed
     const daysElement = document.getElementById('days');
-    daysElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s have passed since the event.`;
+    daysElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s have passed.`;
 }
 
 // Update the time every second
