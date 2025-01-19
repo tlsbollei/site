@@ -1,3 +1,6 @@
+// Set the date you're counting down to
+const countdownDate = new Date("Jan 31, 2025 00:00:00").getTime();
+
 function updateCountdown() {
     const now = new Date().getTime();
     const timeLeft = countdownDate - now;
@@ -12,9 +15,12 @@ function updateCountdown() {
         daysElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s remaining.`;
     } else {
         daysElement.innerHTML = 'The event has started!';
-        clearInterval(interval);
+        clearInterval(interval); // Stop the countdown when the event has started
     }
 }
 
+// Update the countdown every 1 second
 const interval = setInterval(updateCountdown, 1000);
+
+// Initialize the countdown
 updateCountdown();
