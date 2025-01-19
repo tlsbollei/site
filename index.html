@@ -35,7 +35,7 @@
             <h1>buna</h1>
             <p>bunecna (faceit 10 btw) (i wish)</p>
             <div class="days-since">
-                <h1>Countdown Timer</h1>
+                <h1>Time Passed:</h1>
                 <div id="days" class="time">Loading...</div>
             </div>
             <div class="social-links">
@@ -71,28 +71,32 @@
     </footer>
 
     <script>
-        const countdownDate = new Date('September 24, 2024 13:52:00').getTime();
+        // Set the target date (September 24, 2024, 1:52 PM)
+        const targetDate = new Date('September 24, 2024 13:52:00').getTime();
 
-        function updateCountdown() {
+        function updateElapsedTime() {
+            // Get the current time
             const now = new Date().getTime();
-            const timeLeft = countdownDate - now;
+            
+            // Calculate the time difference (how much time has passed since the target date)
+            const timePassed = now - targetDate;
 
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            // Calculate the days, hours, minutes, and seconds that have passed
+            const days = Math.floor(timePassed / (1000 * 60 * 60 * 24)); // Days
+            const hours = Math.floor((timePassed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); // Hours
+            const minutes = Math.floor((timePassed % (1000 * 60 * 60)) / (1000 * 60)); // Minutes
+            const seconds = Math.floor((timePassed % (1000 * 60)) / 1000); // Seconds
 
+            // Update the #days element with the calculated time passed
             const daysElement = document.getElementById('days');
-            if (timeLeft > 0) {
-                daysElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s remaining.`;
-            } else {
-                daysElement.innerHTML = 'The event has started!';
-                clearInterval(interval);
-            }
+            daysElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s have passed since the event.`;
         }
 
-        const interval = setInterval(updateCountdown, 1000);
-        updateCountdown();
+        // Update the time every second
+        const interval = setInterval(updateElapsedTime, 1000);
+
+        // Initialize the elapsed time display
+        updateElapsedTime();
     </script>
 </body>
 </html>
